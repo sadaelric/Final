@@ -33,6 +33,11 @@ public class RocketHub extends Hub {
 			//	Determine if payment, call RateBLL.getPayment
 			//	
 			//	you should update lq, and then send lq back to the caller(s)
+		
+			
+			double n = lq.getiTerm()*12.00;
+			lq.setdPayment(RateBLL.getPayment(lq.getdRate(), n, lq.getdAmount(), 0.00, false));
+		
 			
 			sendToAll(lq);
 		}

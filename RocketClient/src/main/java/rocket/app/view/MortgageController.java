@@ -1,5 +1,10 @@
 package rocket.app.view;
-
+import eNums.eAction;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import rocket.app.MainApp;
+import rocketCode.Action;
+import rocketData.LoanRequest;
 import eNums.eAction;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,8 +13,14 @@ import rocketCode.Action;
 import rocketData.LoanRequest;
 
 public class MortgageController {
-
 	private MainApp mainApp;
+	private double txtIncome;
+	private double txtExpenses;
+	private int txtCreditScore;
+	private int txtHouseCost;
+	private int loanTerm;
+	private String error;
+	
 	
 	//	TODO - RocketClient.RocketMainController
 	
@@ -41,7 +52,14 @@ public class MortgageController {
 		//	TODO - RocketClient.RocketMainController
 		//			set the loan request details...  rate, term, amount, credit score, downpayment
 		//			I've created you an instance of lq...  execute the setters in lq
-
+	
+		lq.setiTerm(loanTerm);
+		lq.setiCreditScore(txtCreditScore);
+		lq.setdAmount(txtHouseCost);
+		lq.setExpenses(txtExpenses);
+		lq.setiCreditScore(txtCreditScore);
+		lq.setIncome(txtIncome);
+		
 		a.setLoanRequest(lq);
 		
 		//	send lq as a message to RocketHub		
